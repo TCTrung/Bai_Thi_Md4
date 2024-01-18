@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <title>CITIES</title>
+</head>
+<body>
+<h1 style="text-align: center">City Information</h1>
+
+<form th:object="${city}">
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-form-label">Tên</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" placeholder="Enter Name City" th:field="*{name}" disabled>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Quốc Gia</label>
+        <input type="text" class="form-control" id="countries" th:field="*{country.name}" disabled>
+
+    </div>
+    <div class="form-group">
+        <label for="area" class="col-sm-2 col-form-label">Diện Tích</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="area" placeholder="Enter Area" th:field="*{area}" disabled>
+            <p th:if="${#fields.hasErrors('area')}" th:errors="*{area}">Area Error</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="population" class="col-sm-2 col-form-label">Dân Số</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="population" placeholder="Enter Description" th:field="*{population}" disabled>
+            <p th:if="${#fields.hasErrors('population')}" th:errors="*{population}">Population Error</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="GDP" class="col-sm-2 col-form-label">GDP</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" id="GDP" placeholder="Enter GDP" th:field="*{GDP}" disabled>
+            <p th:if="${#fields.hasErrors('GDP')}" th:errors="*{GDP}"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description" class="col-sm-2 col-form-label">Giới Thiệu</label>
+        <div class="col-sm-10">
+            <textarea type="text" class="form-control" id="description" placeholder="Enter Release Date" th:field="*{description}" disabled></textarea>
+            <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</p>
+        </div>
+    </div>
+
+        <a type="button" class="btn btn-success" href="/home">Home</a>
+
+</form>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

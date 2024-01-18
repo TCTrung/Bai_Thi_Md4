@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>CITIES</title>
+</head>
+<body>
+
+<h1 style="text-align: center">CITIES LIST</h1>
+
+<div>
+    <a type="button" class="btn btn-success" href="/home/create">Create new city</a>
+</div>
+
+<table border="1" class="table table-dark table-striped">
+    <tr>
+        <th>STT</th>
+        <th>Thành Phố</th>
+        <th>Quốc Gia</th>
+        <th colspan="3">Action</th>
+    </tr>
+    <th:block th:each="city,index : ${cities}">
+        <tr>
+            <td th:text="${index.count}"></td>
+            <td th:text="${city.name}"></td>
+            <td th:text="${city.country.name}"></td>
+
+            <td><a type="button" class="btn btn-success" th:href="@{/home/city/__${city.id}__ }" >Thông tin</a></td>
+            <td><a  type="button" class="btn btn-success" th:href="@{/home/update/__${city.id}__ }" >Sửa</a></td>
+            <td><a onclick="return confirm('Bạn chắc chắn muốn xóa thành phố này ?')" type="button" class="btn btn-success" th:href="@{/home/delete/__${city.id}__ }" >Xóa</a></td>
+
+        </tr>
+    </th:block>
+</table>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+</body>
+</html>
